@@ -13,7 +13,7 @@ import com.blo.VilleBLO;
 import com.dto.Ville;
 
 @RestController
-public class Get_All {
+public class MethodGet {
 	
 	@Autowired
 	VilleBLO villeBLOService;
@@ -28,7 +28,6 @@ public class Get_All {
 				return listVille.get(i);
 			}
 		}
-		
 		return null;
 	}
 }
