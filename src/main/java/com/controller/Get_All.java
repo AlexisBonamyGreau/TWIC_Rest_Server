@@ -13,7 +13,7 @@ import com.blo.VilleBLO;
 import com.dto.Ville;
 
 @RestController
-public class testController {
+public class Get_All {
 	
 	@Autowired
 	VilleBLO villeBLOService;
