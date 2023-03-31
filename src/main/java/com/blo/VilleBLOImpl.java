@@ -23,4 +23,14 @@ public class VilleBLOImpl implements VilleBLO {
 		
 		return listVille;
 	}
+
+	@Override
+	public ArrayList<Ville> getInfoVilles() throws SQLException {
+		ArrayList<Ville> listVille;
+		listVille = new ArrayList<Ville>();
+		
+		listVille = villeDAO.findAllVilles();
+		
+		return listVille;
+	}
 }

@@ -13,7 +13,7 @@ import com.blo.VilleBLO;
 import com.dto.Ville;
 
 @RestController
-public class MethodGet {
+public class VilleController {
 	
 	@Autowired
 	VilleBLO villeBLOService;
@@ -29,5 +29,12 @@ public class MethodGet {
 			}
 		}
 		return null;
+	}
+
+	@RequestMapping(value="/all-villes", method=RequestMethod.GET)
+	public ArrayList<Ville> getAll() throws SQLException {
+		System.out.println("getAll");
+		
+		return villeBLOService.getInfoVilles();
 	}
 }
