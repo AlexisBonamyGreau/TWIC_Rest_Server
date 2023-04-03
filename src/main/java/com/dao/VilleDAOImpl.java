@@ -24,16 +24,9 @@ public class VilleDAOImpl implements VilleDAO {
         ResultSet rs = null;
 
 	    try {
-			 // Charger le pilote JDBC
 			 Class.forName("org.mariadb.jdbc.Driver");
-			
-			 // Établir une connexion
 			 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/villes", "root", "root");
-			
-			 // Créer une déclaration
 			 stmt = conn.createStatement();
-			
-			 // Exécuter une requête
 			 rs = stmt.executeQuery("SELECT * FROM ville_france;");
 			
 			 // Traiter les résultats
@@ -73,5 +66,85 @@ public class VilleDAOImpl implements VilleDAO {
 		      }
 	    
 		return listVille;
+	}
+
+	@Override
+	public void insertVille(String codeInsee, String nom, String codePostal, String libelle, String ligne,
+			String latitude, String longitude) {
+		System.out.println("insertVille");
+
+		Connection conn = null;
+        Statement stmt = null;
+
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/villes", "root", "root");
+			stmt = conn.createStatement();
+			stmt.executeUpdate("INSERT INTO ville_france (Code_commune_INSEE, Nom_commune, Code_postal, Libelle_acheminement, Ligne_5, Latitude, Longitude) VALUES ('" + codeInsee + "', '" + nom + "', '" + codePostal + "', '" + libelle + "', '" + ligne + "', '" + latitude + "', '" + longitude + "');");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void updateVille(String codeInsee, String nom, String codePostal, String libelle, String ligne,
+			String latitude, String longitude) {
+		System.out.println("updateVille");
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/villes", "root", "root");
+			stmt = conn.createStatement();
+			stmt.executeUpdate("UPDATE ville_france SET Nom_commune = '" + nom + "', Code_postal = '" + codePostal + "', Libelle_acheminement = '" + libelle + "', Ligne_5 = '" + ligne + "', Latitude = '" + latitude + "', Longitude = '" + longitude + "' WHERE Code_commune_INSEE = '" + codeInsee + "';");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void deleteVille(String codeInsee) {
+		System.out.println("deleteVille " + codeInsee);
+	
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/villes", "root", "root");
+			stmt = conn.createStatement();
+			stmt.executeUpdate("DELETE FROM ville_france WHERE Code_commune_INSEE = '" + codeInsee + "';");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 }

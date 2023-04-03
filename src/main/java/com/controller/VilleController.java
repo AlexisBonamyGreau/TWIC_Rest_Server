@@ -17,24 +17,63 @@ public class VilleController {
 	
 	@Autowired
 	VilleBLO villeBLOService;
-	
-	@RequestMapping(value="/villes", method=RequestMethod.GET)
-	public Ville get(@RequestParam(required=false, value="codePostal") String codePostal) throws SQLException {
-		System.out.println("get : " + codePostal);
+
+
+	// Method GET without filter
+	@RequestMapping(value="/all-villes", method=RequestMethod.GET)
+	public ArrayList<Ville> getAll() throws SQLException {
+		System.out.println("getAll");
 		
-		ArrayList<Ville> listVille = villeBLOService.getInfoVilles(codePostal);
+		return villeBLOService.getInfoVilles();
+	}
+
+	// Method GET with filter on codeInsee
+	@RequestMapping(value="/villes", method=RequestMethod.GET)
+	public Ville get(@RequestParam(required=false, value="codeInsee") String codeInsee) throws SQLException {
+		System.out.println("get : " + codeInsee);
+		
+		ArrayList<Ville> listVille = villeBLOService.getInfoVilles(codeInsee);
 		for (int i=0; i<listVille.size(); i++) {
-			if (listVille.get(i).getCode_postal().equals(codePostal)) {
+			if (listVille.get(i).getCode_insee().equals(codeInsee)) {
 				return listVille.get(i);
 			}
 		}
 		return null;
 	}
 
-	@RequestMapping(value="/all-villes", method=RequestMethod.GET)
-	public ArrayList<Ville> getAll() throws SQLException {
-		System.out.println("getAll");
+	// Method POST
+	@RequestMapping(value="/villes", method=RequestMethod.POST)
+	public void post(@RequestParam(required=false, value="codeInsee") String codeInsee,
+			@RequestParam(required=false, value="nom") String nom,
+			@RequestParam(required=false, value="codePostal") String codePostal,
+			@RequestParam(required=false, value="libelle") String libelle,
+			@RequestParam(required=false, value="ligne") String ligne,
+			@RequestParam(required=false, value="latitude") String latitude,
+			@RequestParam(required=false, value="longitude") String longitude) throws SQLException {
+		System.out.println("post : " + codeInsee + " " + nom + " " + codePostal + " " + libelle + " " + ligne + " " + latitude + " " + longitude);
 		
-		return villeBLOService.getInfoVilles();
+		villeBLOService.insertVille(codeInsee, nom, codePostal, libelle, ligne, latitude, longitude);
+	}
+
+	// Method PUT (update)
+	@RequestMapping(value="/villes", method=RequestMethod.PUT)
+	public void put(@RequestParam(required=false, value="codeInsee") String codeInsee,
+			@RequestParam(required=false, value="nom") String nom,
+			@RequestParam(required=false, value="codePostal") String codePostal,
+			@RequestParam(required=false, value="libelle") String libelle,
+			@RequestParam(required=false, value="ligne") String ligne,
+			@RequestParam(required=false, value="latitude") String latitude,
+			@RequestParam(required=false, value="longitude") String longitude) throws SQLException {
+		System.out.println("put : " + codeInsee + " " + nom + " " + codePostal + " " + libelle + " " + ligne + " " + latitude + " " + longitude);
+		
+		villeBLOService.updateVille(codeInsee, nom, codePostal, libelle, ligne, latitude, longitude);
+	}
+
+	// Method DELETE
+	@RequestMapping(value="/villes", method=RequestMethod.DELETE)
+	public void delete(@RequestParam(required=false, value="codeInsee") String codeInsee) throws SQLException {
+		System.out.println("delete : " + codeInsee);
+		
+		villeBLOService.deleteVille(codeInsee);
 	}
 }

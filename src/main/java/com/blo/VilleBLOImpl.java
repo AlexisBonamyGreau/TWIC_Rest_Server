@@ -33,4 +33,21 @@ public class VilleBLOImpl implements VilleBLO {
 		
 		return listVille;
 	}
+
+	@Override
+	public void insertVille(String codeInsee, String nom, String codePostal, String libelle, String ligne,
+			String latitude, String longitude) {
+		villeDAO.insertVille(codeInsee, nom, codePostal, libelle, ligne, latitude, longitude);
+	}
+
+	@Override
+	public void updateVille(String codeInsee, String nom, String codePostal, String libelle, String ligne,
+			String latitude, String longitude) {
+		villeDAO.updateVille(codeInsee, nom, codePostal, libelle, ligne, latitude, longitude);
+	}
+
+	@Override
+	public void deleteVille(String codeInsee) {
+		villeDAO.deleteVille(codeInsee);
+	}
 }
