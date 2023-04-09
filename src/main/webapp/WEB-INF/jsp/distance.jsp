@@ -4,6 +4,7 @@
 	<title>Villes</title>
 	<meta name="description" content="TP ESEO API REST + CLIENT">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core">
 </head>
 
 <header>
@@ -29,7 +30,7 @@
 		<label for="villeB">Ville B</label>
 		<select name="villeB" id="villeB">
 			<c:forEach items="${villes}" var="ville">
-				<option value="${ville.id}">${ville.nom}</option>
+				<option value="${ville.code_insee}">${ville.nom}</option>
 			</c:forEach>
 		</select>
 		<br>
