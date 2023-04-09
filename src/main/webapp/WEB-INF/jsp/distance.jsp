@@ -1,10 +1,9 @@
 <html lang="en">
 <head>
-<meta charset="utf-8">
-
-<title>Villes</title>
-<meta name="description" content="TP ESEO API REST + CLIENT">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta charset="utf-8">
+	<title>Villes</title>
+	<meta name="description" content="TP ESEO API REST + CLIENT">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <header>
@@ -38,5 +37,9 @@
 	</form>
 	<c:if test="${distance != null}">
 		<p>La distance entre ${villeA.nom} et ${villeB.nom} est de ${distance} km</p>
+	</c:if>
+	<footer>
+		<p>Made with <span class="heart">&hearts;</span> by Alexis Bonamy &copy; 2023</p>
+	</footer>
 </body>
 </html>
