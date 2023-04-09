@@ -4,20 +4,20 @@
 
 <title>Villes</title>
 <meta name="description" content="TP ESEO API REST + CLIENT">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <header>
 	<nav>
 		<ul>
-			<li><a href="home">Distance</a></li>
-			<li><a href="list">Villes</a></li>
+			<li><a href="home">Calcul de distance</a></li>
+			<li><a href="list">Liste des villes</a></li>
 			<li><a href="config">#TEMP configuration</a></li>
 		</ul>
 	</nav>
 </header>
 
-<body>
-	<h1>Ville</h1>
-	<p>configuration of a city</p>
+<body class="conf">
+	<h1>Configuration d'une ville</h1>
 </body>
 </html>

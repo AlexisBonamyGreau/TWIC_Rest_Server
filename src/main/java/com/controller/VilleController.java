@@ -11,6 +11,7 @@ public class VilleController {
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
 		
+		// mv.addObject("distance", 300);
 		mv.setViewName("distance");
 
 		return mv;
