@@ -1,10 +1,25 @@
 /* Global styles */
-nav {
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: #e9e0d2;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
     background-color: #333;
     color: #fff;
     padding: 10px;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    padding: 20px 0 20px 0;
 }
 
 li {
@@ -21,17 +36,11 @@ a {
 
 a:hover {
     color: #e9e0d2;
-    text-decoration: underline;
 }
 
-body {
-    text-align: center;
-    background-color: #e9e0d2;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #333;
-    margin: 0;
-    padding: 0;
+a.selected {
+    color: #e9e0d2;
+    text-decoration: underline;
 }
 
 footer {
@@ -40,14 +49,62 @@ footer {
     text-align: center;
     position: absolute;
     bottom: 0;
-    width: 100%;padding: 20px 0 20px 0;
+    width: 100%;
+    padding: 20px 0 20px 0;
+    font-size: large;
 }
 
 .heart {
     color: #e25555;
-    font-size: 18px;
+    font-size: large;
     vertical-align: middle;
 }
 
 
 /* Styles of distance page */
+form {
+    margin: 50px 0 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 7vh;
+}
+
+input {
+    width: 20vh;
+    font-size: large;
+}
+
+select {
+    width: 20vh;
+    height: 4vh;
+}
+
+label {
+    font-size: large;
+}
+
+
+/* Styles of all_villes page */
+table {
+    border-collapse: collapse;
+    width: 90%;
+    height: 5vh;
+    background-color: #e9e0d2;
+    box-shadow: #333 0 0 10px;
+    text-decoration: underline;
+}
+
+th {
+    height: 100%;
+    width: 10px;
+    text-align: center;
+    background-color: #ffffff;
+}
