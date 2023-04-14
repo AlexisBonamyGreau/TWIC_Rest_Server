@@ -1,10 +1,10 @@
 <html lang="en">
 <head>
-<meta charset="utf-8">
-
-<title>Villes</title>
-<meta name="description" content="TP ESEO API REST + CLIENT">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta charset="utf-8">
+	<title>Villes</title>
+	<meta name="description" content="TP ESEO API REST + CLIENT">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core">
 </head>
 
 <header>
@@ -30,7 +30,7 @@
 		<label for="villeB">Ville B</label>
 		<select name="villeB" id="villeB">
 			<c:forEach items="${villes}" var="ville">
-				<option value="${ville.id}">${ville.nom}</option>
+				<option value="${ville.code_insee}">${ville.nom}</option>
 			</c:forEach>
 		</select>
 		<br>
@@ -38,5 +38,9 @@
 	</form>
 	<c:if test="${distance != null}">
 		<p>La distance entre ${villeA.nom} et ${villeB.nom} est de ${distance} km</p>
+	</c:if>
+	<footer>
+		<p>Made with <span class="heart">&hearts;</span> by Alexis Bonamy &copy; 2023</p>
+	</footer>
 </body>
 </html>
