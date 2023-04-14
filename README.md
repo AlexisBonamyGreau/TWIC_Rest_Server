@@ -1,5 +1,9 @@
 # TWIC_Rest_Server
 
+## Server
+
+Once the server launched, you can access to the main page with the address http://localhost:8080/home
+
 ## API Villes
 
 This is a Java-based API that exposes CRUD operations on a database of French cities.
